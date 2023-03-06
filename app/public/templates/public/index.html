@@ -1,0 +1,89 @@
+<!-- CARGAMOS COMO EXTEND LA PLANTILLA BASE -->
+{% extends "base_template.html" %}
+<!-- CARGAMOS CONTENIDO EN EL BLOQUE DE TITULO -->
+
+<!-- CARGAMOS CONTENIDO EN EL BLOQUE DE CONTENIDOS -->
+{% block content %}
+
+<div class="text-header d-flex align-items-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="main_section fadeIn"> Bienvenido al Blog de Emprinet 4.0</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div id="container containericons text-login">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bg-circulo-transp3 ">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel-group" id="accordion">
+                        <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                    <div class="panel-body ">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Titulo</th>
+                                        <th>Fecha</th>
+                                        <th>Mas Detalles</th>    
+                                    </tr>
+                                </thead>
+                                <tbody>
+        {% for post in posts %}
+        <tr>
+            <th>{{post.title}}  </th>
+            <th>{{post.created|datetime}}  </th>
+            <th><a href="{{ url_for('public.show_post', slug=post.title_slug) }}" class='btn btn-success' >Ver</a></th>
+               
+        {% else %}
+            <li>No hay entradas</li>
+        {% endfor %}
+    </div>
+                                            
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<!-- End  Basic Table  --> 
+    </div>
+</div>
+</div>
+    
+
+
+</div>
+
+</div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    Listado de posteos
+{% endblock %}
+
+{% block content %}
+
+
+<div class="text-header d-flex align-items-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="main_section fadeIn"> Mis Posteos</h1>  
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <div id="container containericons text-login">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bg-circulo-transp3 ">
+                    <div class="panel-heading">
+                        <div class="panel-body">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                                            <div class="panel-body ">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Titulo</th>
+                                                                <th>Fecha</th>
+                                                                <th>Contenido</th>
+                                                                <th>Modificar</th>    
+                                                                <th><a href="{{ url_for('admin.post_form') }}" class='btn btn-warning' >Nuevo Post</a></th>
+                                                            </tr>
+                                                            
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for post in posts %}
+                                                            <tr>
+                                                                <th>{{post.title}}  </th>
+                                                                <th>{{post.created|datetime}}  </th>
+                                                                <th>{{post.content}}  </th>
+                                                                <th><a href="{{ url_for('admin.update_post_form', post_id=post.id) }}" class='btn btn-success' >Editar</a></th>
+                                                                {% endfor %}           
+                                                        </tbody>   
+                                                    </table>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                                    
+                                
+                                
+                    </div>
+                                
+                </div>
+                                
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>                             
+
+
+    
+{% endblock %}
